@@ -239,7 +239,7 @@ B<m4(1)>
 
 =head1 AUTOR
 
-Tomasz Wegrzanowski <taw@users.sourceforge.net>
+Tomasz Wegrzanowski <Tomasz.Wegrzanowski@gmail.com>
 
 (zarówno angielska jak i polska wersja)
 

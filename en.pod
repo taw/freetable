@@ -241,6 +241,6 @@ B<m4(1)>
 
 =head1 AUTHOR
 
-Tomasz Wegrzanowski <taw@users.sourceforge.net>
+Tomasz Wegrzanowski <Tomasz.Wegrzanowski@gmail.com>
 
 =cut

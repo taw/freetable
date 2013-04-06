@@ -195,7 +195,7 @@ ou
 
 =head1 AUTEUR
 
-Tomasz Wegrzanowski <taw@users.sourceforge.net>
+Tomasz Wegrzanowski <Tomasz.Wegrzanowski@gmail.com>
 
 Traduction française de la documentation:
 Denis Barbier <barbier@imacs.polytechnique.fr>
