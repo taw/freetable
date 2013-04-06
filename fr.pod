@@ -1,0 +1,203 @@
+freetable 0.11
+Tomasz Wêgrzanowski <taw@users.sf.net>
+
+French Documentation 0.11-1
+Denis Barbier <barbier@imacs.polytechnique.fr>
+
+=head1 NAME
+
+freetable - outil de génération automatique de tableaux HTML
+
+=head1 VERSION
+
+Cette documentation décrit l'utilisation de freetable 1.1.
+
+Si vous utilisez une autre version, certaines différences peuvent
+apparaitre.
+
+=head1 SYNOPSIS
+
+B<freetable> I<[options]> F<fichier>
+ 
+Options:
+
+I<-h>, I<--help>        Print usage info and exit
+
+I<-V>, I<--version>     Affiche seulement le numéro de version
+                  de F<freetable>
+
+I<-c>, I<--comment>     Affiche un commentaire avant chaque
+                  cellule pour indiquer son emplacement
+
+I<-b>, I<--no-nbsp>     N'ajoute pas C<&nbsp;> dans les cellules
+                  vides pour modifier le rendu 3D
+
+I<-w>, I<--warning>     Affiche un commentaire avant chaque
+                  tableau, indiquant que le tableau est
+                  généré automatiquement et ne doit pas
+                  être édité
+
+I<-l>, I<--location>    Remplace les indicateurs C<E<lt>rowE<gt>> (ligne)
+                  et C<E<lt>colE<gt>> (colonne) à l'intérieur des
+                  tableaux par la position de la cellule
+                  courante.
+
+I<-m>, I<--macro>       Avec cette option, le contenu des
+                  cellules est passé à un pré-processeur,
+                  qui est F<m4> par défaut
+
+=head1 AVERTISSEMENT SUR LA SECURITE
+
+ N'UTILISEZ PAS DE MACRO PROCESSEUR SUR UN
+ FICHIER SOURCE DONT VOUS N'ETES PAS SUR.
+ CELA POURRAIT COMPROMETTRE LA SECURITE DE
+ VOTRE SYSTEME
+
+ Plus d'informations dans la documentation de F<m4>,
+ en particulier la commande I<syscmd>.
+
+=head1 DESCRIPTION
+
+Ce programme est un logiciel libre qui remplace F<wwwtable>.
+
+HTML est un langage agréable, mais avec un énorme défaut : les tableaux.
+J'ai passé de nombreuses heures à lire le code source que j'avais tout
+juste écrit pour essayer de comprendre quelle cellule dans le code
+source correspond à ce qui est affiché dans le navigateur.
+
+Si cela vous rappelle une expérience similaire, alors lisez cette
+documentation et votre peine ne sera plus qu'un mauvais souvenir.
+
+Le programme reçoit en entrée du code HTML provenant soit de l'entrée
+standard, soit d'un fichier. Il recherche alors les caractères suivants,
+qui annoncent l'ouverture d'un tableau:
+
+   <wwwtable [options]>
+
+Il analyse le contenu jusqu'à détecter la fin du tableau, affiche le
+code HTML correspondant puis continue le traitement avec les tableaux
+suivants.
+
+=head1 SYNTAXE
+
+La syntaxe est très simple:
+
+    wwwtable:
+    <wwwtable [wwwtable_options]>
+    [preambule]
+    [cellule]
+    [cellule]
+    ...
+    </wwwtable>
+
+La chaine optionnelle wwwtable_options est passée telle quelle comme
+attribut de la balise C<E<lt>TABLEE<gt>>. Le préambule n'est pas traité,
+il peux contenir n'importe quel code HTML, il sera inséré au début du
+tableau.
+
+Les cellules sont soit des cellules normales (balise C<E<lt>TDE<gt>>),
+soit des cellules d'en-tête (balise C<E<lt>THE<gt>>).
+
+    cellule normale:
+    (ligne,colonne) cellule_options
+    contenu_cellule
+
+    cellule en-tête:
+    ((ligne,colonne)) cellule_options  
+    contenu_cellule
+
+Le texte contenu dans cellule_options est passé comme attribut
+de la balise de la cellule. Les mots-clés C<colspan> et C<rowspan>
+sont interprétés pour générer des tableaux corrects.
+
+Le contenu des cellules (contenu_cellule) est quelconque, il peut même
+contenir d'autres wwwtables !
+
+Si vous utilisez l'option I<-m>, le contenu des cellules sera passé
+comme entrée standard de la commande F<m4>(1), après avoir remplacé les
+chaines de caractères B<E<lt>rowE<gt>> (resp. B<E<lt>colE<gt>>)
+par le numéro de ligne (resp. colonne) de la cellule.
+
+Les indices de ligne et colonne sont soit des nombres, soit une
+expression régulière qui désigne un ensemble de cellules. À la
+différence de F<wwwtable>, F<freetable> peut aussi utiliser des
+expressions régulières dans les cellules d'en-tête. Un autre ajout est
+la possiblité d'utiliser C<*> à la place de C<.*>.
+
+Les expressions régulières suivantes sont reconnues dans les indices de
+lignes et colonnes:
+
+I<=> ou vide : même indice que la cellule précédente
+
+I<+> ou I<+X> : incrémente l'indice de I<X> (défaut: 1)
+
+I<-> ou I<-X> : décrémente l'indice de I<X> (défaut: 1)
+
+Lorsqu'une cellule est désignée par plusieurs expressions régulières, à
+la fois les options et le contenu de chaque cellule sont ajoutés.
+
+Si vous n'utilisez que des expressions régulières, il faut indiquer au
+programme la position de la dernière cellule.
+
+    <wwwtable>
+    (*,1)
+    cellules de la colonne 1
+    (1,*)
+    cellules de la ligne 1
+    (4,4)
+    </wwwtable>
+
+=head1 INCOMPATIBILITES AVEC WWWTABLE
+
+Les utilisateurs de F<wwwtable> qui décident de passer à F<freetable>
+devraient lire cette section. La majorité des incompatibilités
+proviennent du traitement des expressions régulières. Il faut aussi
+noter que F<wwwtable> ne permettait ni le remplacement automatiques des
+numéros de lignes et de colonnes, ni l'utilisation d'un
+pré-processeur.
+
+Les cellules d'en-tête peuvent être définies avec des expressions
+régulières, par exemple
+
+    ((1,*)) align=right
+    
+ce qui était impossible avec F<wwwtable>.
+
+Les indices des axes sont 100% orthogonaux, ce qui signifie qu'avec le code
+suivant
+
+    (*,1) width=30
+    (*,2) width=35
+    (*,3) width=40
+    (=,=)
+    Foo
+
+C<Foo> va apparaitre en 3e colonne, et si vous vouliez qu'il soit en 1e
+position, il faut écrire
+
+    (*,1) width=30
+    (*,2) width=35
+    (*,3) width=40
+    (=,1)
+    Foo
+
+ou
+
+    (*,) width=30
+    (*,+) width=35
+    (*,+) width=40
+    (=,1)
+    Foo
+
+=head1 VOIR AUSSI
+
+    B<m4(1)>
+
+=head1 AUTEUR
+
+Tomasz Wegrzanowski <taw@users.sourceforge.net>
+
+Traduction française de la documentation:
+Denis Barbier <barbier@imacs.polytechnique.fr>
+
+=cut

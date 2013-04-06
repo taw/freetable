@@ -1,0 +1,65 @@
+freetable (2.3) unstable; urgency=low
+
+  * Rewrite of sequencing code -early sequencing algorithm
+  * Added a test suite
+  * Added COPYING to source package
+  * Added TESTS file - list of tests
+  * Fixed mail addresses in changelog, I hope it won't make too much mess
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Mon Dec  3 00:20:44 CET 2001
+
+freetable (2.1) unstable; urgency=low
+
+  * Fix cell jumping code
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Fri, 20 Jul 2001 21:44:44 +0200
+
+freetable (2.0) unstable; urgency=low
+
+  * Range or arbitrary Perl code as cell address
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Sun, 15 Apr 2001 22:51:21 +0200
+
+freetable (1.1) unstable; urgency=low
+
+  * Minor fix for ecmascript in nested tables
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Sat, 13 May 2000 11:06:21 +0200
+
+freetable (1.0) frozen unstable; urgency=low
+
+  * Updated French manpage
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Sun, 30 Jan 2000 21:57:00 +0100
+
+freetable (0.11) unstable; urgency=low
+
+  * New upstream version
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Thu, 27 Jan 2000 01:27:00 +0100
+
+freetable (0.5) unstable; urgency=low
+
+  * Adding one part to manual
+  * Solving bug when equal sign appeared immediately after regexp
+  * Correcting Denis' adress
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Fri, 31 Dec 1999 11:02:00 +0100
+
+freetable (0.2) unstable; urgency=low
+
+  * Sponsoring package for Tomasz Wegrzanowski <taw@users.sf.net>
+  * Uncommented call to dh_installdocs
+
+ -- Elie Rosenblum <fnord@debian.org>  Thu,  9 Dec 1999 16:52:18 -0500
+
+freetable (0.1) unstable; urgency=low
+
+  * Initial Release
+
+ -- Tomasz Wegrzanowski <taw@users.sf.net>  Wed,  8 Dec 1999 22:00:00 +0100
+
+Local variables:
+mode: debian-changelog
+add-log-mailing-address: "taw@users.sf.net"
+End:
