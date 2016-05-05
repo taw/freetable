@@ -1,0 +1,16 @@
+<html>
+<body>
+This table should have size 2x2 and 7 entries.
+2 cells: (1,2) and (2,1) should be header cells.
+<table border=1>
+  <tr>
+    <td>[row 1, any column] [any row, column 1]</td>
+    <th>[row 1, any column]</th>
+  </tr>
+  <tr>
+    <th>[any row, column 1] [row 2, any column]</th>
+    <td>[row 2, any column] [row 2, column 2]</td>
+  </tr>
+</table>
+</body>
+</html>

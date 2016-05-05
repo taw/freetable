@@ -1,0 +1,26 @@
+<html>
+<body>
+This table should have size 4x4 (some cells merged with others), and 9 entries.
+<table border=1>
+  <tr>
+    <td>&nbsp;</td>
+    <td>[col <col>]</td>
+    <td>[col <col>]</td>
+    <td>[col <col>]</td>
+  </tr>
+  <tr>
+    <td>[row <row>]</td>
+    <td rowspan=2>[row (2+3), column 2]</td>
+    <td colspan=2>[row (2), column (3+4)]</td>
+  </tr>
+  <tr>
+    <td>[row <row>]</td>
+    <td colspan=2 rowspan=2>[row (3+4), column (3+4)]</td>
+  </tr>
+  <tr>
+    <td>[row <row>]</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+This table should have size 10x3 and 22 entries.
+<table border=1>
+  <tr>
+    <td>[row 1, column 1]</td>
+    <td>[rows 1,2,4,5,7,8 and 10, column 2]</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>[row 2, column 1]</td>
+    <td>[rows 1,2,4,5,7,8 and 10, column 2]</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>[rows 3, 5 and 6, column 1]</td>
+    <td>&nbsp;</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>[rows 1,2,4,5,7,8 and 10, column 2]</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>[rows 3, 5 and 6, column 1]</td>
+    <td>[rows 1,2,4,5,7,8 and 10, column 2]</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>[rows 3, 5 and 6, column 1]</td>
+    <td>&nbsp;</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>[rows 1,2,4,5,7,8 and 10, column 2]</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>[rows 1,2,4,5,7,8 and 10, column 2]</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>[rows 1,2,4,5,7,8 and 10, column 2]</td>
+    <td>[all rows, column 3]</td>
+  </tr>
+</table>
+</body>
+</html>

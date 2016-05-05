@@ -1,0 +1,42 @@
+<html>
+<body>
+This table should have size 5x5 and 36 entries
+<table border=1>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [odd row, column 2] [row 1, even column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [row 1, even column]</td>
+    <td>[any row, any column]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column] [row 2, any column]</td>
+    <td>[any row, any column] [row 2, any column]</td>
+    <td>[any row, any column] [row 2, any column]</td>
+    <td>[any row, any column] [row 2, any column]</td>
+    <td>[any row, any column] [row 2, any column]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [odd row, column 2]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [odd row, column 2]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [row 5, column 5]</td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+This table should have size 5x3 and 21 entries
+<table border=1>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [rows 1-5, column 3]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [rows 1-5, column 3] [Cursor finished in row 2, column 3]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [rows 1-5, column 3]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [rows 1-5, column 3]</td>
+  </tr>
+  <tr>
+    <td>[any row, any column]</td>
+    <td>[any row, any column]</td>
+    <td>[any row, any column] [rows 1-5, column 3]</td>
+  </tr>
+</table>
+</body>
+</html>
